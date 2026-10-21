@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row min-vh-100 align-items-center justify-content-center">
+    <div class="col-6 p-4 auth-box ">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput
+                   [formField]="loginForm.username"
+                   placeholder="Enter your username">
+            @if(loginForm.username().errors().length > 0){
+              @for (error of loginForm.username().errors(); track error.kind){
+                <mat-error>{{error.message}}</mat-error>
+              }
+            }
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput
+                   [formField]="loginForm.password"
+                   placeholder="******">
+          </mat-form-field>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

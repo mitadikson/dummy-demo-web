@@ -1,0 +1,17 @@
+<mat-form-field class="example-full-width">
+  <mat-label>Search</mat-label>
+  <input type="text" matInput
+         [formField]="searchForm.search"
+         placeholder="Search products">
+</mat-form-field>
+
+@for(product of products(); track product.id){
+  <article>
+    <header>
+      <h4>{{product.title}}</h4>
+    </header>
+    <div>
+      {{product.description}}
+    </div>
+  </article>
+}
